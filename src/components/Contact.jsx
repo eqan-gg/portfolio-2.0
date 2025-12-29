@@ -1,33 +1,45 @@
 import { content } from '../data/content';
 import { FiMail, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
- 
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  
+
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-    setName('');
-    setEmail('');
-    setMessage('');
+  e.preventDefault();
 
-    const response = await fetch("https://portfolio-server-vev8.onrender.com/api/contact", {
-      method : "POST",
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify({name,email,message})
-    })
+  try {
+    const response = await fetch(
+      "https://portfolio-server-vev8.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      }
+    );
 
-    
-
-
+    if (response.ok) {
+      toast.success("Message sent successfully ✅");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      toast.error("Failed to send message ❌");
+    }
+  } catch (error) {
+    toast.error("Server error. Try again later ❌");
+    console.error(error);
   }
+};
+
 
   return (
     <section id="contact" className="section">
@@ -69,7 +81,7 @@ const Contact = () => {
               <textarea value={message} onChange={(e) => setMessage(e.target.value)} id="message" rows="5" placeholder="Your message here..." required></textarea>
             </div>
             <button type="submit" className="btn submit-btn">
-              Send Message <FiSend style={{ marginLeft: '0.5rem' }}  />
+              Send Message <FiSend style={{ marginLeft: '0.5rem' }} />
             </button>
           </form>
         </div>
