@@ -1,3 +1,5 @@
+import profileImg from '../assets/profile.jpeg';
+
 export const content = {
     header: {
         logo: "<Dev/>",
@@ -12,38 +14,38 @@ export const content = {
         name: "Eqan Hanif",
         title: "Frontend Web Developer",
         intro: "I build accessible, pixel-perfect, and performant web experiences.",
-        img: "https://placehold.co/200x200/222/fff?text=EH",
+        img: profileImg,
         ctaPrimary: "View Projects",
         ctaSecondary: "Contact Me",
     },
     projects: [
         {
             id: 1,
-            title: "E-Commerce Dashboard",
-            description: "A comprehensive dashboard for managing online stores with real-time data visualization.",
+            title: "ManageUp - Task Management App",
+            description: "A role-based task management web application with admin and employee dashboards.",
             features: [
-                "Real-time sales tracking",
-                "Inventory management system",
-                "Dark/Light mode support",
-                "Responsive data tables"
+                "Role-based access (Admin/Employee)",
+                "Task creation and assignment",
+                "Task status tracking and workflows",
+                "LocalStorage data persistence"
             ],
-            techStack: ["React", "Chart.js", "Firebase", "CSS Modules"],
-            demoLink: "#",
-            githubLink: "#",
+            techStack: ["React.js", "Tailwind CSS", "Context API", "LocalStorage"],
+            demoLink: "https://manage-up.vercel.app/",
+            githubLink: "https://github.com/eqan-gg/ManageUp",
         },
         {
             id: 2,
-            title: "Social Media App",
-            description: "A responsive social platform allowing users to connect and share content.",
+            title: "NexusAI Landing Page",
+            description: "A modern, responsive landing page for a SaaS startup built with HTML, CSS, and JavaScript.",
             features: [
-                "User authentication",
-                "Image upload & optimization",
-                "Infinite scroll feed",
-                "Real-time notifications"
+                "Modern Glassmorphism Design",
+                "Fully Responsive (Mobile-first)",
+                "Interactive Animations",
+                "Pricing & Feature Sections"
             ],
-            techStack: ["React", "Redux", "Node.js", "MongoDB"],
-            demoLink: "#",
-            githubLink: "#",
+            techStack: ["HTML5", "CSS3", "JavaScript", "Font Awesome"],
+            demoLink: "https://nexusai-landing-page.vercel.app/",
+            githubLink: "https://github.com/eqan-gg/nexusai-landing-page",
         },
         {
             id: 3,
@@ -57,7 +59,21 @@ export const content = {
             ],
             techStack: ["React", "Vite", "Vanilla CSS"],
             demoLink: "#",
-            githubLink: "#",
+            githubLink: "https://github.com/eqan-gg/portfolio-2.0",
+        },
+        {
+            id: 4,
+            title: "Movie Streaming UI Clone",
+            description: "A responsive movie streaming application interface with real-time search and favorites management.",
+            features: [
+                "Real-time movie search",
+                "Favorites management (Add/Remove)",
+                "Separate Favorites page",
+                "Mobile-friendly responsive design"
+            ],
+            techStack: ["React.js", "CSS", "React Router DOM", "useState"],
+            demoLink: "https://movies-app-three-sand.vercel.app/",
+            githubLink: "https://github.com/eqan-gg/movies-app",
         }
     ],
     skills: {
@@ -79,6 +95,10 @@ export const content = {
         ui: [
             { name: "Tailwind CSS", icon: "ri-windy-fill" },
             { name: "Bootstrap", icon: "ri-bootstrap-fill" }
+        ],
+        backend: [
+            { name: "Node.js (Basics)", icon: "ri-nodejs-line" },
+            { name: "MongoDB (Basics)", icon: "ri-database-2-fill" }
         ]
     },
     about: {
@@ -95,7 +115,7 @@ export const content = {
     contact: {
         email: "eqanchauhaan@gmail.com",
         github: "https://github.com/eqan-gg",
-        linkedin: "https://linkedin.com/in/eqan-dev",
+        linkedin: "https://www.linkedin.com/in/eqan-hanif",
         resume: "#"
     }
 };

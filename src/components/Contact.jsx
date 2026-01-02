@@ -9,12 +9,15 @@ const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
 
   const handleSubmit = async (e) => {
   e.preventDefault();
 
+
   try {
+    setLoading(true);
     const response = await fetch(
       "https://portfolio-server-vev8.onrender.com/api/contact",
       {
@@ -27,16 +30,19 @@ const Contact = () => {
     );
 
     if (response.ok) {
+        setName("");
+        setEmail("");
+        setMessage("");
       toast.success("Message sent successfully ✅");
-      setName("");
-      setEmail("");
-      setMessage("");
+      setLoading(false);
     } else {
       toast.error("Failed to send message ❌");
+        setLoading(false);
     }
   } catch (error) {
     toast.error("Server error. Try again later ❌");
     console.error(error);
+    setLoading(false);
   }
 };
 
@@ -80,7 +86,7 @@ const Contact = () => {
               <label htmlFor="message">Message</label>
               <textarea value={message} onChange={(e) => setMessage(e.target.value)} id="message" rows="5" placeholder="Your message here..." required></textarea>
             </div>
-            <button type="submit" className="btn submit-btn">
+            <button type="submit" disabled={loading} className="btn submit-btn">
               Send Message <FiSend style={{ marginLeft: '0.5rem' }} />
             </button>
           </form>

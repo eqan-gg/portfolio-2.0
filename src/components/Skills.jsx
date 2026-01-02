@@ -50,6 +50,17 @@ const Skills = () => {
                             ))}
                         </ul>
                     </div>
+                    <div className="skill-category">
+                        <h3>Backend</h3>
+                        <ul>
+                            {content.skills.backend.map((skill, index) => (
+                                <li key={index}>
+                                    <i className={skill.icon}></i>
+                                    <span>{skill.name}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
 
