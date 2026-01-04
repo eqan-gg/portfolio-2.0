@@ -7,8 +7,8 @@ const Projects = () => {
       <div className="container">
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-grid">
-          {content.projects.map((project) => (
-            <article key={project.id} className="project-card">
+          {content.projects.map((project, index) => (
+            <article key={project.id} className={`project-card animate-slide-up delay-${index % 3 + 1}`}>
               <div className="card-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.description}</p>
@@ -44,12 +44,6 @@ const Projects = () => {
           background-color: var(--bg-secondary);
         }
 
-        .section-title {
-          font-size: 2.5rem;
-          margin-bottom: 3rem;
-          text-align: center;
-          font-weight: 700;
-        }
 
         .projects-grid {
           display: grid;

@@ -1,32 +1,32 @@
 import { content } from '../data/content';
 
 const About = () => {
-    const { bio, enjoy, strengths, lookingFor } = content.about;
+  const { bio, enjoy, strengths, lookingFor } = content.about;
 
-    return (
-        <section id="about" className="section bg-secondary">
-            <div className="container about-container">
-                <h2 className="section-title">About Me</h2>
+  return (
+    <section id="about" className="section bg-secondary">
+      <div className="container about-container">
+        <h2 className="section-title">About Me</h2>
 
-                <div className="about-content">
-                    <div className="bio-group">
-                        <p className="lead">{bio}</p>
-                        <p>{enjoy}</p>
-                        <p>{lookingFor}</p>
-                    </div>
+        <div className="about-content">
+          <div className="bio-group animate-slide-up">
+            <p className="lead">{bio}</p>
+            <p>{enjoy}</p>
+            <p>{lookingFor}</p>
+          </div>
 
-                    <div className="strengths-group">
-                        <h3>My Strengths</h3>
-                        <ul className="strengths-list">
-                            {strengths.map((str, index) => (
-                                <li key={index}>{str}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          <div className="strengths-group animate-slide-up delay-1">
+            <h3>My Strengths</h3>
+            <ul className="strengths-list">
+              {strengths.map((str, index) => (
+                <li key={index}>{str}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
 
-            <style>{`
+      <style>{`
         .about-container {
           max-width: 900px;
         }
@@ -86,8 +86,8 @@ const About = () => {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default About;

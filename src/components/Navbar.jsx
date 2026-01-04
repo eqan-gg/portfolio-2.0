@@ -5,7 +5,7 @@ import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +16,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    document.body.className = theme === 'light' ? 'light-mode' : '';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -80,13 +81,13 @@ const Navbar = () => {
         }
         
         /* Light mode navbar */
-        body.light-mode .navbar {
+        [data-theme='light'] .navbar {
           background: rgba(255, 255, 255, 0.6);
           border: 1px solid rgba(0, 0, 0, 0.1);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        body.light-mode .navbar.scrolled {
+        [data-theme='light'] .navbar.scrolled {
           background: rgba(255, 255, 255, 0.8);
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
@@ -192,7 +193,7 @@ const Navbar = () => {
             border: 1px solid var(--border);
           }
           
-          body.light-mode .nav-links {
+          [data-theme='light'] .nav-links {
              background: rgba(255, 255, 255, 0.95);
           }
 

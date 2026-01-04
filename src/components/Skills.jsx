@@ -6,7 +6,7 @@ const Skills = () => {
             <div className="container">
                 <h2 className="section-title">Technical Skills</h2>
                 <div className="skills-grid">
-                    <div className="skill-category">
+                    <div className="skill-category animate-slide-up delay-1">
                         <h3>Languages</h3>
                         <ul>
                             {content.skills.languages.map((skill, index) => (
@@ -17,7 +17,7 @@ const Skills = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="skill-category">
+                    <div className="skill-category animate-slide-up delay-2">
                         <h3>Frameworks</h3>
                         <ul>
                             {content.skills.frameworks.map((skill, index) => (
@@ -28,7 +28,7 @@ const Skills = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="skill-category">
+                    <div className="skill-category animate-slide-up delay-3">
                         <h3>Tools</h3>
                         <ul>
                             {content.skills.tools.map((skill, index) => (
@@ -39,7 +39,7 @@ const Skills = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="skill-category">
+                    <div className="skill-category animate-slide-up delay-1">
                         <h3>UI & Design</h3>
                         <ul>
                             {content.skills.ui.map((skill, index) => (
@@ -50,7 +50,7 @@ const Skills = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="skill-category">
+                    <div className="skill-category animate-slide-up delay-2">
                         <h3>Backend</h3>
                         <ul>
                             {content.skills.backend.map((skill, index) => (

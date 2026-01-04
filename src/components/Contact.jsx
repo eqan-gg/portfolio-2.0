@@ -13,50 +13,50 @@ const Contact = () => {
 
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
 
-  try {
-    setLoading(true);
-    const response = await fetch(
-      "https://portfolio-server-vev8.onrender.com/api/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      }
-    );
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "https://portfolio-server-vev8.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
 
-    if (response.ok) {
+      if (response.ok) {
         setName("");
         setEmail("");
         setMessage("");
-      toast.success("Message sent successfully ✅");
-      setLoading(false);
-    } else {
-      toast.error("Failed to send message ❌");
+        toast.success("Message sent successfully ✅");
         setLoading(false);
+      } else {
+        toast.error("Failed to send message ❌");
+        setLoading(false);
+      }
+    } catch (error) {
+      toast.error("Server error. Try again later ❌");
+      console.error(error);
+      setLoading(false);
     }
-  } catch (error) {
-    toast.error("Server error. Try again later ❌");
-    console.error(error);
-    setLoading(false);
-  }
-};
+  };
 
 
   return (
     <section id="contact" className="section">
       <div className="container contact-container">
         <h2 className="section-title">Get In Touch</h2>
-        <p className="contact-intro">
+        <p className="contact-intro animate-fade-in">
           I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
         </p>
 
         <div className="contact-grid">
-          <div className="contact-info">
+          <div className="contact-info animate-slide-up">
             <div className="info-item">
               <h3>Email</h3>
               <a href={`mailto:${content.contact.email}`} className="icon-link">
@@ -73,7 +73,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit} action="/contact" method="post">
+          <form className="contact-form animate-slide-up delay-1" onSubmit={handleSubmit} action="/contact" method="post">
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" placeholder="FullName" required />

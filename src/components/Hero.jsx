@@ -1,28 +1,28 @@
 import { content } from '../data/content';
 
 const Hero = () => {
-    const { name, title, intro, ctaPrimary, ctaSecondary, img } = content.hero;
+  const { name, title, intro, ctaPrimary, ctaSecondary, img } = content.hero;
 
-    return (
-        <section className="hero section">
-            <div className="container hero-content">
-                {img && (
-                    <div className="profile-img-container">
-                        <img src={img} alt={name} className="profile-img" />
-                    </div>
-                )}
-                <h2 className="greeting">Hello, I'm</h2>
-                <h1 className="name">{name}</h1>
-                <h2 className="title">{title}</h2>
-                <p className="intro">{intro}</p>
+  return (
+    <section className="hero section animate-fade-in">
+      <div className="container hero-content">
+        {img && (
+          <div className="profile-img-container animate-slide-up">
+            <img src={img} alt={name} className="profile-img floating" />
+          </div>
+        )}
+        <h2 className="greeting animate-slide-up delay-1">Hello, I'm</h2>
+        <h1 className="name animate-slide-up delay-1">{name}</h1>
+        <h2 className="title animate-slide-up delay-2">{title}</h2>
+        <p className="intro animate-slide-up delay-2">{intro}</p>
 
-                <div className="cta-group">
-                    <a href="#projects" className="btn">{ctaPrimary}</a>
-                    <a href="#contact" className="btn btn-outline">{ctaSecondary}</a>
-                </div>
-            </div>
+        <div className="cta-group animate-slide-up delay-3">
+          <a href="#projects" className="btn">{ctaPrimary}</a>
+          <a href="#contact" className="btn btn-outline">{ctaSecondary}</a>
+        </div>
+      </div>
 
-            <style>{`
+      <style>{`
         .hero {
           min-height: 100vh;
           display: flex;
@@ -47,6 +47,10 @@ const Hero = () => {
             box-shadow: 0 0 20px rgba(100, 108, 255, 0.2);
         }
 
+        .profile-img.floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
         .greeting {
           color: var(--accent);
           font-size: 1.2rem;
@@ -59,7 +63,7 @@ const Hero = () => {
           font-weight: 800;
           line-height: 1.1;
           margin-bottom: 1rem;
-          background: linear-gradient(to right, #fff, #a1a1a1);
+          background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -91,8 +95,8 @@ const Hero = () => {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Hero;

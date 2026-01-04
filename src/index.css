@@ -5,32 +5,32 @@
   --bg-card: #141414;
   --text-primary: #ffffff;
   --text-secondary: #a1a1a1;
-  --accent: #646cff; /* Vite Blue - can change to user preference */
+  --accent: #646cff;
+  /* Vite Blue - can change to user preference */
   --accent-hover: #535bf2;
   --border: #333333;
-  
+
   /* Typography */
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-  
+
   /* Spacing */
   --container-width: 1200px;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  
+
   /* Transitions */
   --transition: all 0.3s ease;
 }
 
 /* Light Theme Variables */
-body.light-mode {
+:root[data-theme='light'] {
   --bg-primary: #ffffff;
   --bg-secondary: #f3f3f3;
   --bg-card: #f9f9f9;
   --text-primary: #213547;
   --text-secondary: #666666;
   --border: #e0e0e0;
-  
 }
 
 * {
@@ -105,4 +105,80 @@ img {
   color: var(--accent);
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
